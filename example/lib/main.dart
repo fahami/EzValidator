@@ -66,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
     /// identicalKeys clause to your schema
     try {
       setState(() {
-        errors = mySchema.validateSync(form);
+        errors = mySchema.validateSync(form).errors;
       });
       // ignore: avoid_print
       errors.forEach((key, value) {

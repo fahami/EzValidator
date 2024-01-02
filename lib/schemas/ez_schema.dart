@@ -1,3 +1,5 @@
+import 'package:ez_validator/main.dart';
+
 class EzSchema {
   final Map<String, String? Function(String? value)> _schema;
 
@@ -14,7 +16,7 @@ class EzSchema {
 
   ///validate the values you have sent and return a [Map]
   ///with errors. each error will have the key from form keys
-  Map<String, String> validateSync(Map<String, dynamic> form) {
+  ValidateReturn validateSync(Map<String, dynamic> form) {
     if (identicalKeys ?? false) {
       if (!_compareKeys(form)) {
         throw Exception("value and schema must have the same keys");
@@ -43,7 +45,7 @@ class EzSchema {
         }
       }
     }
-    return _errors;
+    return ValidateReturn(form, _errors);
   }
 
   bool _compareKeys(Map<String, dynamic> form) {
