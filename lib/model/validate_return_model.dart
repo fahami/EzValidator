@@ -1,6 +1,6 @@
 class ValidateReturn {
-  final Map<String, dynamic> data;
+  final Map<String, dynamic> form;
   final Map<String, String> errors;
 
-  ValidateReturn(this.data, this.errors);
+  ValidateReturn(this.form, this.errors);
 }
